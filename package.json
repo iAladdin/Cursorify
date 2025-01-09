@@ -1,0 +1,140 @@
+{
+  "name": "cursorify",
+  "displayName": "Cursorify",
+  "description": "Manage Cursor AI configuration files with version control",
+  "version": "1.0.0",
+  "publisher": "cursorify",
+  "author": {
+    "name": "Cursorify Team"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cursorify/cursorify"
+  },
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "workspaceContains:**/.cursorrules",
+    "workspaceContains:**/.cursorignore"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Cursorify",
+      "properties": {
+        "cursorify.maxVersions": {
+          "type": "number",
+          "default": 10,
+          "minimum": 1,
+          "description": "Maximum number of versions to keep in history"
+        },
+        "cursorify.rulesCache": {
+          "type": "object",
+          "default": {},
+          "description": "Cache for cursor rules templates from repository"
+        },
+        "cursorify.defaultRulesTemplate": {
+          "type": "string",
+          "default": "",
+          "description": "Default template to use when initializing new .cursorrules (Use 'Cursorify: Set Default Rules Template' command to change)"
+        },
+        "cursorify.defaultIgnoreTemplate": {
+          "type": "string",
+          "default": "",
+          "description": "Default template to use when initializing new .cursorignore (Use 'Cursorify: Set Default Ignore Template' command to change)"
+        },
+        "cursorify.savedRulesTemplates": {
+          "type": "object",
+          "default": {},
+          "description": "User saved .cursorrules templates"
+        },
+        "cursorify.savedIgnoreTemplates": {
+          "type": "object",
+          "default": {},
+          "description": "User saved .cursorignore templates"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "cursorify.initializeCursor",
+        "title": "Cursorify: Initialize Cursor Configuration"
+      },
+      {
+        "command": "cursorify.showHistory",
+        "title": "Cursorify: Show Configuration History"
+      },
+      {
+        "command": "cursorify.rollback",
+        "title": "Cursorify: Rollback Configuration"
+      },
+      {
+        "command": "cursorify.showDiff",
+        "title": "Cursorify: Show Configuration Diff"
+      },
+      {
+        "command": "cursorify.updateRulesCache",
+        "title": "Cursorify: Update Rules Cache"
+      },
+      {
+        "command": "cursorify.showCache",
+        "title": "Cursorify: Show Cache Content"
+      },
+      {
+        "command": "cursorify.clearCache",
+        "title": "Cursorify: Clear Cache"
+      },
+      {
+        "command": "cursorify.searchRules",
+        "title": "Cursorify: Search Rules"
+      },
+      {
+        "command": "cursorify.saveRulesTemplate",
+        "title": "Cursorify: Save Current Configuration as Template"
+      },
+      {
+        "command": "cursorify.manageRulesTemplates",
+        "title": "Cursorify: Manage Rules Templates"
+      },
+      {
+        "command": "cursorify.manageIgnoreTemplates",
+        "title": "Cursorify: Manage Ignore Templates"
+      },
+      {
+        "command": "cursorify.setDefaultRulesTemplate",
+        "title": "Cursorify: Set Default Rules Template"
+      },
+      {
+        "command": "cursorify.setDefaultIgnoreTemplate",
+        "title": "Cursorify: Set Default Ignore Template"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "20.x",
+    "@types/node-fetch": "^2.6.9",
+    "@types/vscode": "^1.84.0",
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0",
+    "typescript": "^5.3.0",
+    "vscode-test": "^1.6.1"
+  },
+  "dependencies": {
+    "simple-git": "^3.27.0",
+    "node-fetch": "^2.7.0"
+  }
+}
