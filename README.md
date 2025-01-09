@@ -1,5 +1,7 @@
 # Cursorify
 
+![Cursorify](resources/icon.png)
+
 VSCode extension for managing Cursor AI configuration files with version control.
 
 ## Features
@@ -266,7 +268,6 @@ If you encounter any problems or have suggestions:
 
 1. Check the [FAQ](docs/FAQ.md)
 2. Open an issue
-3. Contact support at [support@email.com]
 
 ## Changelog
 

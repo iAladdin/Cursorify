@@ -1,16 +1,36 @@
 {
   "name": "cursorify",
   "displayName": "Cursorify",
-  "description": "Manage Cursor AI configuration files with version control",
-  "version": "1.0.0",
-  "publisher": "cursorify",
+  "description": "Manage Cursor AI configuration files (.cursorrules, .cursorignore) with version control",
+  "version": "1.0.1",
+  "publisher": "iAladdin",
   "author": {
-    "name": "Cursorify Team"
+    "name": "iAladdin",
+    "url": "https://github.com/iAladdin"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cursorify/cursorify"
+    "url": "https://github.com/iAladdin/cursorify"
   },
+  "bugs": {
+    "url": "https://github.com/iAladdin/cursorify/issues"
+  },
+  "homepage": "https://github.com/iAladdin/cursorify#readme",
+  "license": "MIT",
+  "icon": "resources/icon.png",
+  "galleryBanner": {
+    "color": "#696969FF",
+    "theme": "dark"
+  },
+  "keywords": [
+    "cursor",
+    "ai",
+    "configuration",
+    "version control",
+    "template",
+    "rules",
+    "ignore"
+  ],
   "engines": {
     "vscode": "^1.84.0"
   },
