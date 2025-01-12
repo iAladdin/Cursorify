@@ -2,12 +2,16 @@
   "name": "cursorify",
   "displayName": "Cursorify",
   "description": "Manage Cursor AI configuration files (.cursorrules, .cursorignore) with version control",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "publisher": "iAladdin",
   "author": {
     "name": "iAladdin",
     "url": "https://github.com/iAladdin"
   },
+  "extensionKind": [
+    "ui",
+    "workspace"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/iAladdin/cursorify"
@@ -32,14 +36,13 @@
     "ignore"
   ],
   "engines": {
-    "vscode": "^1.84.0"
+    "vscode": "^1.74.0"
   },
   "categories": [
     "Other"
   ],
   "activationEvents": [
-    "workspaceContains:**/.cursorrules",
-    "workspaceContains:**/.cursorignore"
+    "onStartupFinished"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -82,55 +85,68 @@
     "commands": [
       {
         "command": "cursorify.initializeCursor",
-        "title": "Cursorify: Initialize Cursor Configuration"
+        "title": "Cursorify: Initialize Cursor Configuration",
+        "enablement": "true"
       },
       {
         "command": "cursorify.showHistory",
-        "title": "Cursorify: Show Configuration History"
+        "title": "Cursorify: Show Configuration History",
+        "enablement": "workspaceHasFolder"
       },
       {
         "command": "cursorify.rollback",
-        "title": "Cursorify: Rollback Configuration"
+        "title": "Cursorify: Rollback Configuration",
+        "enablement": "workspaceHasFolder"
       },
       {
         "command": "cursorify.showDiff",
-        "title": "Cursorify: Show Configuration Diff"
+        "title": "Cursorify: Show Configuration Diff",
+        "enablement": "workspaceHasFolder"
       },
       {
         "command": "cursorify.updateRulesCache",
-        "title": "Cursorify: Update Rules Cache"
+        "title": "Cursorify: Update Rules Cache",
+        "enablement": "workspaceHasFolder"
       },
       {
         "command": "cursorify.showCache",
-        "title": "Cursorify: Show Cache Content"
+        "title": "Cursorify: Show Cache Content",
+        "enablement": "workspaceHasFolder"
       },
       {
         "command": "cursorify.clearCache",
-        "title": "Cursorify: Clear Cache"
+        "title": "Cursorify: Clear Cache",
+        "enablement": "workspaceHasFolder"
       },
       {
         "command": "cursorify.searchRules",
-        "title": "Cursorify: Search Rules"
+        "title": "Cursorify: Search Rules",
+        "enablement": "workspaceHasFolder"
       },
       {
         "command": "cursorify.saveRulesTemplate",
-        "title": "Cursorify: Save Current Configuration as Template"
+        "title": "Cursorify: Save Current Configuration as Template",
+        "enablement": "workspaceHasFolder"
       },
       {
         "command": "cursorify.manageRulesTemplates",
-        "title": "Cursorify: Manage Rules Templates"
+        "title": "Cursorify: Manage Rules Templates",
+        "enablement": "true"
       },
       {
         "command": "cursorify.manageIgnoreTemplates",
-        "title": "Cursorify: Manage Ignore Templates"
+        "title": "Cursorify: Manage Ignore Templates",
+        "enablement": "true"
       },
       {
         "command": "cursorify.setDefaultRulesTemplate",
-        "title": "Cursorify: Set Default Rules Template"
+        "title": "Cursorify: Set Default Rules Template",
+        "enablement": "true"
       },
       {
         "command": "cursorify.setDefaultIgnoreTemplate",
-        "title": "Cursorify: Set Default Ignore Template"
+        "title": "Cursorify: Set Default Ignore Template",
+        "enablement": "true"
       }
     ]
   },
@@ -147,7 +163,7 @@
     "@types/mocha": "^10.0.6",
     "@types/node": "20.x",
     "@types/node-fetch": "^2.6.9",
-    "@types/vscode": "^1.84.0",
+    "@types/vscode": "^1.74.0",
     "chai": "^4.3.10",
     "mocha": "^10.2.0",
     "typescript": "^5.3.0",
@@ -156,5 +172,11 @@
   "dependencies": {
     "simple-git": "^3.27.0",
     "node-fetch": "^2.7.0"
+  },
+  "capabilities": {
+    "virtualWorkspaces": true,
+    "untrustedWorkspaces": {
+      "supported": true
+    }
   }
 }

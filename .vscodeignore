@@ -10,10 +10,11 @@ vsc-extension-quickstart.md
 **/*.ts
 .cursor-history/**
 .cursorrules
-.cursorignore
-node_modules/**
+.cursorignores
 test/**
 docs/**
+
 .github/**
 .git/**
 .DS_Store
+demo/**
